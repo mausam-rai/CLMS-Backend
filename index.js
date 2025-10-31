@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import userRouter from './Router/User.Router.js';
 import projectRouter from './Router/Project.Router.js'
 import activityRouter from './Router/Activity.Router.js'
+import leadRouter from './Router/Lead.Router.js'
 
 const corsOptions={
     origin:'*',
@@ -27,6 +28,7 @@ const PORT= process.env.PORT || 8000;
 app.use('/user', userRouter);
 app.use('/project', projectRouter);
 app.use('/activity', activityRouter);
+app.use('/lead', leadRouter);
 
 
 

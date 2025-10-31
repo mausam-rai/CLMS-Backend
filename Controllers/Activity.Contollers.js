@@ -53,7 +53,7 @@ const getAllActivities= async(req, res)=>{
             filter.details={$regex: search, $options: "i"} // case insensitive
         }
         const activities= await Activity.find(filter).populate("staffId", "name email role")
-        .sort({date: -1});
+        .sort({createdAt: -1});
         return res.status(200).json({message: "all activities", activities, success: true, count:activities.length});
     } catch (error) {
         console.log("Can't get activities", error);
@@ -74,7 +74,7 @@ const getActivity= async(req, res)=>{
         const owner= activity.staffId._id.toString()===req.user._id.toString();
         const isAdmin=["superadmin", "manager"].includes(req.user.role)
         if(!owner && !isAdmin){
-            return res.status(403).json({message:"YOu Dont have Access!"})
+            return res.status(403).json({message:"You Dont have Access!"})
         }
 
         return res.status(200).json({message:"Successfully fetch", success:true, activity})

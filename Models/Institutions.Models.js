@@ -1,28 +1,31 @@
+import timestamps from "mongoo/lib/plugins/timestamps";
 import mongoose from "mongoose";
 
-const instituteSchema= new mongoose.Schema({
-    name:{
-        type:String
+const instituteSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required:true
     },
-    contact:{
-        type:String
+    contact: {
+        type: String,
+        required:true
     },
-    proposalStatus:{
-        type:String,
-        enum:['Accepted', 'Rejected', 'Pending'],
-        default:'Pending'
+    proposalStatus: {
+        type: String,
+        enum: ['Accepted', 'Rejected', 'Pending'],
+        default: 'Pending'
     },
-    visitedDate:{
-        type:Date
+    visitedDate: {
+        type: Date
     },
-    staffId:{
-        type:mongoose.Schema.Types.ObjectId,
-            ref:"User"
+    staffId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
-    notes:{
-        type:String
+    notes: {
+        type: String
     }
-})
+},{timestamps:true})
 
 
-export const Institutions= mongoose.model('Institutions', instituteSchema)
+export const Institutions = mongoose.model('Institutions', instituteSchema)
