@@ -7,6 +7,7 @@ import userRouter from './Router/User.Router.js';
 import projectRouter from './Router/Project.Router.js'
 import activityRouter from './Router/Activity.Router.js'
 import leadRouter from './Router/Lead.Router.js'
+import institutionRouter from './Router/Institution.Router.js'
 
 const corsOptions={
     origin:'*',
@@ -29,6 +30,7 @@ app.use('/user', userRouter);
 app.use('/project', projectRouter);
 app.use('/activity', activityRouter);
 app.use('/lead', leadRouter);
+app.use('/institution', institutionRouter);
 
 
 
