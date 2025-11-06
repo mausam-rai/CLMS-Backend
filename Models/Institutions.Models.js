@@ -1,5 +1,4 @@
-import timestamps from "mongoo/lib/plugins/timestamps";
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const instituteSchema = new mongoose.Schema({
     name: {

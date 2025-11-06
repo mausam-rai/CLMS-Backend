@@ -134,6 +134,7 @@ const updateLead=async(req, res)=>{
         if(nextFollowUpDate)updateLead.nextFollowUpDate=nextFollowUpDate;
         if(notes)updateLead.notes=notes;
         if(assignedTo)updateLead.assignedTo=assignedTo;
+        if(status)updateLead.status=status;
 
         const newLead= await Lead.findByIdAndUpdate(leadId, updateLead,{new:true, runValidators:true}).populate("assignedTo", 'name email role')
 
